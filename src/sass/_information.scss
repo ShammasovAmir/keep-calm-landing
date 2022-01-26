@@ -1,0 +1,55 @@
+.information {
+  margin-bottom: 12vw;
+  color: #141414;
+
+  &__title {
+    margin-top: 30px;
+    margin-bottom: 6vw;
+    font-family: 'Orchidea Pro', sans-serif;
+    font-weight: 500;
+    font-size: 64px;
+    color: #141414;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      line-height: 120%;
+      margin: 0 20px;
+    }
+  }
+
+  &__article-title {
+    font-family: 'Orchidea Pro', sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 110%;
+    color: #141414;
+    margin: 25px 0;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 120%;
+      margin: 0 20px;
+    }
+  }
+
+  &__article-text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    color: #141414;
+    margin-bottom: 4vw;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 130%;
+      margin: 0 20px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 4vw;
+  }
+}

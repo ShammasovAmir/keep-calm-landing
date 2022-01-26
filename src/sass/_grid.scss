@@ -7,9 +7,11 @@ $breakpoint-medium: 'only screen and (min-width: 768px)';
 $breakpoint-large: 'only screen and (min-width: 1008px)';
 $breakpoint-xl: 'only screen and (min-width: 1300px)';
 
-.container {
-  width: 100%;
-  margin: 0 auto;
+.container,
+.container-right,
+.container-left {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .container:after,
@@ -25,16 +27,26 @@ $breakpoint-xl: 'only screen and (min-width: 1300px)';
 }
 
 [class*='col-'] {
-  float: left;
   padding: 0 1em;
   width: 100%;
   min-height: 1px;
   display: inline-block;
 }
 @media #{$breakpoint-xs} {
+  [class*='col-'] {
+    padding: 0;
+    min-height: 1px;
+    display: inline-block;
+  }
+
   .container {
-    width: 95%;
-    max-width: $grid-max-width;
+    margin: 0;
+  }
+  .container-right {
+    margin: 0;
+  }
+  .container-left {
+    margin: 0;
   }
   @for $i from 1 through $grid-columns {
     .col-xs-#{$i} {
@@ -47,9 +59,21 @@ $breakpoint-xl: 'only screen and (min-width: 1300px)';
   }
 }
 @media #{$breakpoint-small} {
+  [class*='col-'] {
+    padding: 0 1em;
+    min-height: 1px;
+    display: inline-block;
+  }
   .container {
-    width: 95%;
-    max-width: $grid-max-width;
+    margin: 0 2.5vw;
+  }
+  .container-right {
+    margin: 0;
+    margin-left: 2.5vw;
+  }
+  .container-left {
+    margin: 0;
+    margin-right: 2.5vw;
   }
   @for $i from 1 through $grid-columns {
     .col-sm-#{$i} {
@@ -62,9 +86,21 @@ $breakpoint-xl: 'only screen and (min-width: 1300px)';
   }
 }
 @media #{$breakpoint-medium} {
+  [class*='col-'] {
+    padding: 0 1em;
+    min-height: 1px;
+    display: inline-block;
+  }
   .container {
-    width: 95%;
-    max-width: $grid-max-width;
+    margin: 0 4vw;
+  }
+  .container-right {
+    margin: 0;
+    margin-left: 4vw;
+  }
+  .container-left {
+    margin: 0;
+    margin-right: 4vw;
   }
   @for $i from 1 through $grid-columns {
     .col-md-#{$i} {
@@ -77,9 +113,21 @@ $breakpoint-xl: 'only screen and (min-width: 1300px)';
   }
 }
 @media #{$breakpoint-large} {
+  [class*='col-'] {
+    padding: 0 1em;
+    min-height: 1px;
+    display: inline-block;
+  }
   .container {
-    width: 95%;
-    max-width: $grid-max-width;
+    margin: 0 5vw;
+  }
+  .container-right {
+    margin: 0;
+    margin-left: 5vw;
+  }
+  .container-left {
+    margin: 0;
+    margin-right: 5vw;
   }
   @for $i from 1 through $grid-columns {
     .col-lg-#{$i} {
@@ -92,9 +140,21 @@ $breakpoint-xl: 'only screen and (min-width: 1300px)';
   }
 }
 @media #{$breakpoint-xl} {
+  [class*='col-'] {
+    padding: 0 1em;
+    min-height: 1px;
+    display: inline-block;
+  }
   .container {
-    width: 95%;
-    max-width: $grid-max-width;
+    margin: 0 12vw;
+  }
+  .container-right {
+    margin: 0;
+    margin-left: 12vw;
+  }
+  .container-left {
+    margin: 0;
+    margin-right: 12vw;
   }
   @for $i from 1 through $grid-columns {
     .col-xl-#{$i} {

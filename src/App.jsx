@@ -1,48 +1,34 @@
 import { useState } from 'react'
+import Information from './components/Information'
 import Nav from './components/Nav'
 import logo from './logo.svg'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentTab, setCurrentTab] = useState(1)
+  const [offsetWidth, setOffsetWidth] = useState(0)
 
   return (
     <>
       <Nav />
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Hello Vite + React!</p>
-          <p>
-            <button
-              type="button"
-              onClick={() => setCount((count) => count + 1)}
-            >
-              count is: {count}
-            </button>
-          </p>
-          <p>
-            Edit <code>App.jsx</code> and save to test HMR updates.
-          </p>
-          <p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-            {' | '}
-            <a
-              className="App-link"
-              href="https://vitejs.dev/guide/features.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Vite Docs
-            </a>
-          </p>
-        </header>
+      <div className="container">
+        <div className="tabs">
+          <div
+            className={`tab ${currentTab === 1 ? 'tab--active' : ''}`}
+            onClick={() => setCurrentTab(1)}
+          >
+            Lorem
+          </div>
+          <div
+            className={`tab ${currentTab === 2 ? 'tab--active' : ''}`}
+            onClick={() => setCurrentTab(2)}
+          >
+            Ipsum
+          </div>
+        </div>
+      </div>
+      <div className="container-right">
+        <h1 className="information__title">Lorem ipsum dolor sit amet</h1>
+        <Information />
       </div>
     </>
   )
