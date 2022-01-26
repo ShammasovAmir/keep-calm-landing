@@ -1,11 +1,11 @@
 import { useState } from 'react'
+import Footer from './components/Footer'
 import Information from './components/Information'
 import Nav from './components/Nav'
 import logo from './logo.svg'
 
-function App() {
+const App = () => {
   const [currentTab, setCurrentTab] = useState(1)
-  const [offsetWidth, setOffsetWidth] = useState(0)
 
   return (
     <>
@@ -30,6 +30,7 @@ function App() {
         <h1 className="information__title">Lorem ipsum dolor sit amet</h1>
         <Information />
       </div>
+      <Footer />
     </>
   )
 }
