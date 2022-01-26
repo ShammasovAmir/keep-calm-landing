@@ -5,6 +5,10 @@
   padding-top: 82px;
   padding-bottom: 75px;
 
+  @media (max-width: 768px) {
+    margin: 0 20px;
+  }
+
   .tab {
     color: #141414;
     font-weight: 700;

@@ -3,9 +3,23 @@ import Footer from './components/Footer'
 import Information from './components/Information'
 import Nav from './components/Nav'
 import logo from './logo.svg'
+import Home from './pages/Home'
+import Accordion from './pages/Accordion'
 
 const App = () => {
   const [currentTab, setCurrentTab] = useState(1)
+
+  const pageRouter = () => {
+    switch (currentTab) {
+      case 1:
+        return <Home />
+      case 2:
+        return <Accordion />
+
+      default:
+        return <Home />
+    }
+  }
 
   return (
     <>
@@ -26,10 +40,8 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="container-right">
-        <h1 className="information__title">Lorem ipsum dolor sit amet</h1>
-        <Information />
-      </div>
+      {/* Router */}
+      {pageRouter()}
       <Footer />
     </>
   )

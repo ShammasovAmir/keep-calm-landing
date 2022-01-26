@@ -1,0 +1,47 @@
+.accordion {
+  min-height: 70vh;
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #141414;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 3rem;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-family: 'Orchidea Pro';
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 110%;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 130%;
+    }
+  }
+
+  &__chevron {
+    font-size: 23px;
+    padding-left: 5px;
+
+    &--active {
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 14.5px;
+    }
+  }
+
+  &__content {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}
