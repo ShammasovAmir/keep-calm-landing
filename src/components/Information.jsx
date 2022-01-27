@@ -4,7 +4,7 @@ import imageUrl2 from '../images/taisiia-stupak-viq7xx1boxo-unsplash 1.jpg'
 
 const Information = () => {
   return (
-    <div class="information">
+    <div className="information">
       <div className="row">
         <div className="col-md-5" style={{ verticalAlign: 'top' }}>
           <div className="information__article-title">
