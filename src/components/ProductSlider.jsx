@@ -39,6 +39,7 @@ const ProductSlider = () => {
     height: window.innerWidth > 451 ? '600px' : '450px',
     width: window.innerWidth > 451 ? '400px' : '300px',
     position: 'relative',
+    cursor: 'pointer',
   }
 
   const slideImageStyles = {

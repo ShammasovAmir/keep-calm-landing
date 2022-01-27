@@ -1,10 +1,11 @@
-import React from 'react'
-import { Navigation } from 'swiper'
+import React, { useEffect, useState } from 'react'
+import { Navigation, Virtual } from 'swiper'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
 import 'swiper/css'
+import 'swiper/css/virtual'
 import 'swiper/css/navigation'
 
 // Images
@@ -15,6 +16,8 @@ import image4 from '../images/cat-han-BJ3grTerqY4-unsplash.jpg'
 import image5 from '../images/joeyy-lee-3TnDfD2hIxg-unsplash.jpg'
 
 const ModalSlider = ({ selectedSlide, setModalOpen, modalOpen }) => {
+  const [swiperRef, setSwiperRef] = useState(null)
+
   const slidesData = [
     {
       id: 1,
@@ -45,9 +48,17 @@ const ModalSlider = ({ selectedSlide, setModalOpen, modalOpen }) => {
     },
   ]
 
+  useEffect(() => {
+    if (modalOpen) slideTo(selectedSlide)
+  }, [selectedSlide])
+
+  const slideTo = (index) => {
+    swiperRef.slideTo(index - 1, 0)
+  }
+
   const showSlides = () =>
     slidesData.map((slide) => (
-      <SwiperSlide key={slide.id}>
+      <SwiperSlide key={slide.id} virtualIndex={slide.id}>
         <img src={slide.imagePath} alt="" />
         {slide.hasText ? <p>{slide.text}</p> : ''}
       </SwiperSlide>
@@ -64,7 +75,13 @@ const ModalSlider = ({ selectedSlide, setModalOpen, modalOpen }) => {
           onClick={() => setModalOpen(false)}
         ></div>
         <div className="container">
-          <Swiper modules={[Navigation]} slidesPerView={1} navigation>
+          <Swiper
+            modules={[Navigation, Virtual]}
+            slidesPerView={1}
+            navigation
+            onSwiper={setSwiperRef}
+            virtual
+          >
             {showSlides()}
           </Swiper>
         </div>
