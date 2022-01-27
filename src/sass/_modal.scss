@@ -1,0 +1,78 @@
+.modal {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #141414;
+  color: #ffffff;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 25px;
+    cursor: pointer;
+  }
+
+  &__main-content {
+    height: 100vh;
+
+    .swiper {
+      margin-top: 8vh;
+    }
+
+    .container {
+      z-index: 12;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: #ffffff !important;
+      background-color: #141414;
+      padding: 30px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        max-height: 73vh;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 2vh;
+
+        @media (max-width: 768px) {
+          max-height: 60vh;
+        }
+      }
+
+      p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 130%;
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

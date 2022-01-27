@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
+import { Navigation } from 'swiper'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
+import ModalSlider from './ModalSlider'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -18,6 +19,8 @@ import image5 from '../images/joeyy-lee-3TnDfD2hIxg-unsplash.jpg'
 
 const ProductSlider = () => {
   const [slideAmount, setSlideAmount] = useState(1)
+  const [selectedSlide, setSelectedSlide] = useState(1)
+  const [modalOpen, setModalOpen] = useState(false)
 
   const checkWindowSize = () => {
     if (window.innerWidth >= 1300) setSlideAmount(3)
@@ -47,12 +50,24 @@ const ProductSlider = () => {
 
   const slides = [
     <SwiperSlide key={0}>
-      <div style={slideContentContainerStyle}>
+      <div
+        style={slideContentContainerStyle}
+        onClick={() => {
+          setModalOpen(true)
+          setSelectedSlide(1)
+        }}
+      >
         <img src={image1} alt="" style={slideImageStyles} />
       </div>
     </SwiperSlide>,
     <SwiperSlide key={1}>
-      <div style={slideContentContainerStyle}>
+      <div
+        style={slideContentContainerStyle}
+        onClick={() => {
+          setModalOpen(true)
+          setSelectedSlide(2)
+        }}
+      >
         <img src={image2} alt="" style={slideImageStyles} />
         <div className="slider-text">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -60,17 +75,35 @@ const ProductSlider = () => {
       </div>
     </SwiperSlide>,
     <SwiperSlide key={2}>
-      <div style={slideContentContainerStyle}>
+      <div
+        style={slideContentContainerStyle}
+        onClick={() => {
+          setModalOpen(true)
+          setSelectedSlide(3)
+        }}
+      >
         <img src={image3} alt="" style={slideImageStyles} />
       </div>
     </SwiperSlide>,
     <SwiperSlide key={3}>
-      <div style={slideContentContainerStyle}>
+      <div
+        style={slideContentContainerStyle}
+        onClick={() => {
+          setModalOpen(true)
+          setSelectedSlide(4)
+        }}
+      >
         <img src={image4} alt="" style={slideImageStyles} />
       </div>
     </SwiperSlide>,
     <SwiperSlide key={4}>
-      <div style={slideContentContainerStyle}>
+      <div
+        style={slideContentContainerStyle}
+        onClick={() => {
+          setModalOpen(true)
+          setSelectedSlide(5)
+        }}
+      >
         <img src={image5} alt="" style={slideImageStyles} />
         <div className="slider-text slider-text--right">
           <p>Lorem ipsum dolor sit amet</p>
@@ -86,6 +119,12 @@ const ProductSlider = () => {
           {slides}
         </Swiper>
       </div>
+
+      <ModalSlider
+        selectedSlide={selectedSlide}
+        setModalOpen={setModalOpen}
+        modalOpen={modalOpen}
+      />
     </>
   )
 }
